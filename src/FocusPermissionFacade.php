@@ -16,6 +16,6 @@ class FocusPermissionFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'focus-permission';
+        return 'focusPermission';
     }
 }
