@@ -13,7 +13,7 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
+        Schema::create(config('permission.table_names.permission'), function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('action')->nullable();
@@ -28,6 +28,6 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions');
+        Schema::dropIfExists(config('permission.table_names.permission'));
     }
 }
