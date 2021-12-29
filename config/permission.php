@@ -6,8 +6,8 @@ return [
 
     ],
     'table_names' => [
-        'permission' => 'permission',
-        'role' => 'role',
+        'permissions' => 'permissions',
+        'roles' => 'roles',
         'role_has_permissions' => 'roles_permissions',
         'users_roles' => 'users_roles',
         'users_permissions' => 'users_permissions',

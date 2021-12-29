@@ -13,10 +13,12 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('permission.table_names.permission'), function (Blueprint $table) {
+        Schema::create(config('focus-permission.table_names.permissions'), function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('action')->nullable();
+            $table->string('action');
+            $table->string('method');
+            $table->boolean('is_editable')->default(false);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('permission.table_names.permission'));
+        Schema::dropIfExists(config('focus-permission.table_names.permissions'));
     }
 }

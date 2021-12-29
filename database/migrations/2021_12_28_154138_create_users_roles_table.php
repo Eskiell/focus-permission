@@ -13,12 +13,12 @@ class CreateUsersRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('permission.table_names.users_roles'), function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->unsigned();
-            $table->unsignedBigInteger('role_id')->unsigned();
+        Schema::create(config('focus-permission.table_names.users_roles'), function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('role_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->primary(['user_id','role_id']);
+            $table->foreign('role_id')->references('id')->on(config('focus-permission.table_names.roles'))->onDelete('cascade');
+            $table->primary(['user_id', 'role_id']);
         });
     }
 
@@ -29,6 +29,6 @@ class CreateUsersRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('permission.table_names.users_roles'));
+        Schema::dropIfExists(config('focus-permission.table_names.users_roles'));
     }
 }

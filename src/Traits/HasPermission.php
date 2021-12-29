@@ -11,16 +11,16 @@ trait HasPermission
     public function roles()
     {
         return $this->belongsToMany(
-            config('permission.models.role'),
-            config('permission.table_names.users_roles'),
+            config('focus-permission.models.role'),
+            config('focus-permission.table_names.users_roles'),
         );
 
     }
     public function permissions()
     {
         return $this->belongsToMany(
-            config('permission.models.permission'),
-            config('permission.table_names.users_permissions'),
+            config('focus-permission.models.permission'),
+            config('focus-permission.table_names.users_permissions'),
         );
 
     }

@@ -11,13 +11,17 @@ class FocusPermissionServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/permission.php' => config_path('focus-permission.php'),
             ], 'config');
+            $this->commands([
+                Commands\PermissionsGenerate::class
+            ]);
         }
     }
+
     /**
      * Register the application services.
      */

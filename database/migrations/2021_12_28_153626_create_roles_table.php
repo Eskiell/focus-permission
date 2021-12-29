@@ -13,12 +13,12 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('permission.table_names.role'), function (Blueprint $table) {
+        Schema::create(config('focus-permission.table_names.roles'), function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description');
             $table->timestamps();
-            $table->softDeletes();
+            $table->boolean('is_editable')->default(false);
         });
     }
 
@@ -29,6 +29,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('permission.table_names.role'));
+        Schema::dropIfExists(config('focus-permission.table_names.roles'));
     }
 }
