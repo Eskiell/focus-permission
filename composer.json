@@ -25,21 +25,22 @@
     },
     "autoload": {
         "psr-4": {
-            "Eskiell\\FocusPermission\\": "src"
+            "Eskiell\\FocusPermission\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Eskiell\\FocusPermission\\Tests\\": "tests"
+            "Eskiell\\FocusPermission\\Tests\\": "tests/"
         }
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "minimum-stability": "dev",
+        "prefer-stable": true
     },
     "extra": {
         "laravel": {
